@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../bootstrap.min.css">
+    <link rel="stylesheet" href="../css.css">
+</head>
+
+<body class="background_main_page">
+    <div id="wrapper">
+        <h1 id="title_start_game">ברוכים הבאים</h1>
+        <p id="p_page_start_game"> הכנס פרטים לתחילת המשחק</p>
+        <form action="#" id="send_form">
+            <div class="details">
+                <div class="input_wrap">
+                    <label for="fname_input">השם שלי</label>
+                    <input id="fname_input" name="first_name" class="input" required />
+                    <p id="name_not_valid">The name you entered is not valid. Enter again</p>
+                </div>
+                <div class="input_wrap">
+                    <label for="password_input">סיסמה</label>
+                    <input id="password_input" type="password" name="password" class="input" required />
+                </div>
+            </div>
+            <button type="submit" id="start_btn">  התחל משחק</button>
+        </form>
+    </div>
+    <script src="../data.js"></script>
+    <script src="../form.js"></script>
+
+</body>
+
+</html>
