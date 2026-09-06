@@ -1,21 +1,24 @@
-let winners = document.querySelector("#five_winners");
-let win = JSON.parse(localStorage.getItem("winners")) || [];
-win.forEach(element => {
-    let li = document.createElement("li");
-    li.innerText =  `${element.date}: ${element.name}      ${element.score}`;
-    winners.append(li);
+const winnersList = document.querySelector('#five_winners');
+const winners = JSON.parse(localStorage.getItem('winners')) || [];
+
+winners.forEach(winner => {
+    const item = document.createElement('li');
+    item.innerText = `${winner.date}: ${winner.name}      ${winner.score}`;
+    winnersList.append(item);
 });
 
-let Uname = new URLSearchParams(location.search).get("name");
+const userName = new URLSearchParams(location.search).get('name') || 'שחקן';
 
-// כפתור יציאה
-let ex=document.querySelector("#cange_playing")
-if(ex)
-ex.onclick = () => {
-    window.location.href = "form.html";
+const changePlayerButton = document.querySelector('#cange_playing');
+if (changePlayerButton) {
+    changePlayerButton.onclick = () => {
+        window.location.href = 'home.html';
+    };
 }
 
-
-document.querySelector("#link").onclick = () => {
-    window.location.href = `game.html?name=${Uname}`;
+const replayButton = document.querySelector('#link');
+if (replayButton) {
+    replayButton.onclick = () => {
+        window.location.href = `game.html?name=${encodeURIComponent(userName)}`;
+    };
 }
