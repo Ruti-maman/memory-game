@@ -112,8 +112,12 @@ const check_same = (firstCard, secondCard, firstButton, secondButton) => {
         count_found++;
         updatePoints();
     } else {
-        firstButton.querySelector('img').src = firstCard.cover;
-        secondButton.querySelector('img').src = secondCard.cover;
+        const firstImg = firstButton.querySelector('img');
+        const secondImg = secondButton.querySelector('img');
+        firstImg.src = firstCard.cover;
+        secondImg.src = secondCard.cover;
+        revealCard(firstImg);
+        revealCard(secondImg);
     }
 
     document.querySelectorAll('.btn_cards').forEach(button => {
@@ -167,6 +171,7 @@ const print_cards = (cards) => {
             image.alt = card.cat;
             selectedCount++;
             button.disabled = true;
+            revealCard(image);
 
             if (selectedCount === 1) {
                 firstCard = card;
@@ -180,10 +185,10 @@ const print_cards = (cards) => {
 
             document.querySelectorAll('.btn_cards').forEach(item => item.disabled = true);
 
-            // Enough time to see the second card, without making the controls feel stuck.
+            // Short pause so both cards stay clearly visible, then check the match.
             setTimeout(() => {
                 check_same(firstCard, secondCard, firstButton, secondButton);
-            }, 900);
+            }, 220);
         };
     }
 };
@@ -200,4 +205,11 @@ updateTimerDisplay();
 
 function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function revealCard(image) {
+    image.classList.remove('flip-reveal');
+    // Force reflow so the animation restarts even if triggered again quickly.
+    void image.offsetWidth;
+    image.classList.add('flip-reveal');
 }
