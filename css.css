@@ -87,17 +87,15 @@ header * {
     width: 200px;
     height: 250px;
     border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
     background: linear-gradient(145deg, #fff8f0, #f2e5d8);
     object-fit: contain;
     padding: 6px;
     box-sizing: border-box;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.25s ease;
+    transition: transform 0.15s ease, opacity 0.25s ease;
 }
 
 .btn_cards:not(:disabled):hover .card {
     transform: translateY(-4px) scale(1.03);
-    box-shadow: 0 10px 18px -4px rgba(0, 0, 0, 0.35);
 }
 
 .card.flip-reveal {
@@ -120,7 +118,7 @@ header * {
 
 .found {
     opacity: 1;
-    box-shadow: 0 0 0 4px #4caf50, 0 4px 10px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 0 4px #4caf50;
 }
 
 #game_timer {
