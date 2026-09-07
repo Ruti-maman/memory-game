@@ -115,7 +115,9 @@ const check_same = (firstCard, secondCard, firstButton, secondButton) => {
         const firstImg = firstButton.querySelector('img');
         const secondImg = secondButton.querySelector('img');
         firstImg.src = firstCard.cover;
+        firstImg.alt = 'קלף סגור';
         secondImg.src = secondCard.cover;
+        secondImg.alt = 'קלף סגור';
         revealCard(firstImg);
         revealCard(secondImg);
     }

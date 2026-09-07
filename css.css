@@ -94,8 +94,21 @@ header * {
     transition: transform 0.15s ease, opacity 0.25s ease;
 }
 
+.btn_cards {
+    overflow: hidden;
+}
+
+/* The cover placeholder photos have a frame baked into the image itself; zoom past it. */
+.card[alt="קלף סגור"] {
+    transform: scale(1.35);
+}
+
 .btn_cards:not(:disabled):hover .card {
     transform: translateY(-4px) scale(1.03);
+}
+
+.btn_cards:not(:disabled):hover .card[alt="קלף סגור"] {
+    transform: scale(1.4);
 }
 
 .card.flip-reveal {
@@ -346,6 +359,7 @@ input:focus-visible {
     min-height: 0;
     padding: 0;
     cursor: pointer;
+    border-radius: clamp(8px, 1.4vw, 20px);
 }
 
 .card {
