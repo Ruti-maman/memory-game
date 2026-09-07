@@ -114,12 +114,8 @@ const check_same = (firstCard, secondCard, firstButton, secondButton) => {
     } else {
         const firstImg = firstButton.querySelector('img');
         const secondImg = secondButton.querySelector('img');
-        firstImg.src = firstCard.cover;
-        firstImg.alt = 'קלף סגור';
-        secondImg.src = secondCard.cover;
-        secondImg.alt = 'קלף סגור';
-        revealCard(firstImg);
-        revealCard(secondImg);
+        revealCard(firstImg, firstCard.cover, 'קלף סגור');
+        revealCard(secondImg, secondCard.cover, 'קלף סגור');
     }
 
     document.querySelectorAll('.btn_cards').forEach(button => {
@@ -169,11 +165,9 @@ const print_cards = (cards) => {
         button.onclick = () => {
             if (button.disabled) return;
 
-            image.src = card.link;
-            image.alt = card.cat;
             selectedCount++;
             button.disabled = true;
-            revealCard(image);
+            revealCard(image, card.link, card.cat);
 
             if (selectedCount === 1) {
                 firstCard = card;
@@ -209,9 +203,11 @@ function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function revealCard(image) {
-    image.classList.remove('flip-reveal');
-    // Force reflow so the animation restarts even if triggered again quickly.
-    void image.offsetWidth;
-    image.classList.add('flip-reveal');
+function revealCard(image, src, alt) {
+    image.classList.add('card-fade');
+    setTimeout(() => {
+        image.src = src;
+        image.alt = alt;
+        requestAnimationFrame(() => image.classList.remove('card-fade'));
+    }, 90);
 }
