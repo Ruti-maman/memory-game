@@ -89,7 +89,6 @@ header * {
     border-radius: 20px;
     background: linear-gradient(145deg, #fff8f0, #f2e5d8);
     object-fit: contain;
-    padding: 6px;
     box-sizing: border-box;
     transition: transform 0.15s ease, opacity 0.25s ease;
 }
@@ -98,17 +97,8 @@ header * {
     overflow: hidden;
 }
 
-/* The cover placeholder photos have a frame baked into the image itself; zoom past it. */
-.card[alt="קלף סגור"] {
-    transform: scale(1.35);
-}
-
 .btn_cards:not(:disabled):hover .card {
     transform: translateY(-4px) scale(1.03);
-}
-
-.btn_cards:not(:disabled):hover .card[alt="קלף סגור"] {
-    transform: scale(1.4);
 }
 
 .card.flip-reveal {
