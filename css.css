@@ -313,6 +313,13 @@ button:disabled {
     filter: none;
 }
 
+.cat_cards img,
+.btn_cards img {
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
 button:focus-visible,
 a:focus-visible,
 input:focus-visible {

@@ -52,6 +52,8 @@ const print_cat = (links) => {
         image.classList.add('img_cat');
         image.src = category.link;
         image.alt = category.cat;
+        image.loading = 'eager';
+        image.draggable = false;
 
         button.append(image);
         container.append(button);
@@ -190,6 +192,8 @@ const print_cards = (cards) => {
         image.classList.add('card');
         image.src = card.cover;
         image.alt = 'קלף סגור';
+        image.loading = 'eager';
+        image.draggable = false;
 
         button.appendChild(image);
         container.appendChild(button);
