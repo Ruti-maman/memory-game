@@ -59,6 +59,11 @@ const print_cat = (links) => {
         button.onclick = () => {
             cards_arr.forEach(card => card.cnt = 0);
             const selectedCards = cards_arr.filter(card => card.cat === category.cat);
+            // Warm the browser cache so the first flips don't wait on a network fetch.
+            selectedCards.forEach(card => {
+                new Image().src = card.link;
+                new Image().src = card.cover;
+            });
             arr_length = selectedCards.length;
             count_found = 0;
             my_points = 0;
@@ -103,6 +108,12 @@ const stop = () => {
 const check_same = (firstCard, secondCard, firstButton, secondButton) => {
     const isMatch = firstCard.link === secondCard.link;
 
+    const enableRemaining = () => {
+        document.querySelectorAll('.btn_cards').forEach(button => {
+            if (!button.classList.contains('found')) button.disabled = false;
+        });
+    };
+
     if (isMatch) {
         firstButton.classList.add('found');
         secondButton.classList.add('found');
@@ -111,16 +122,14 @@ const check_same = (firstCard, secondCard, firstButton, secondButton) => {
         my_points += 5;
         count_found++;
         updatePoints();
+        enableRemaining();
     } else {
         const firstImg = firstButton.querySelector('img');
         const secondImg = secondButton.querySelector('img');
         revealCard(firstImg, firstCard.cover, 'קלף סגור');
-        revealCard(secondImg, secondCard.cover, 'קלף סגור');
+        // Only re-enable the rest of the board once both cards finish flipping back down.
+        revealCard(secondImg, secondCard.cover, 'קלף סגור', enableRemaining);
     }
-
-    document.querySelectorAll('.btn_cards').forEach(button => {
-        if (!button.classList.contains('found')) button.disabled = false;
-    });
 
     if (isMatch && count_found === arr_length) {
         setTimeout(() => {
@@ -203,11 +212,12 @@ function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function revealCard(image, src, alt) {
+function revealCard(image, src, alt, onDone) {
     image.classList.add('card-fade');
     setTimeout(() => {
         image.src = src;
         image.alt = alt;
         requestAnimationFrame(() => image.classList.remove('card-fade'));
+        if (onDone) setTimeout(onDone, 130);
     }, 90);
 }
