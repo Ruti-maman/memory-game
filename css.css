@@ -90,35 +90,11 @@ header * {
     background: linear-gradient(145deg, #fff8f0, #f2e5d8);
     object-fit: contain;
     box-sizing: border-box;
-    transition: transform 0.12s ease-out, opacity 0.25s ease;
+    transition: opacity 0.25s ease;
 }
 
 .btn_cards {
     overflow: hidden;
-}
-
-.btn_cards:not(:disabled):hover .card {
-    transform: scale(1.04);
-}
-
-.btn_cards:not(:disabled):active .card {
-    transform: scale(0.94);
-    transition-duration: 0.06s;
-}
-
-.card.flip-reveal {
-    animation: cardReveal 0.16s ease-out;
-}
-
-@keyframes cardReveal {
-    0% {
-        transform: scale(0.9);
-        opacity: 0.6;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
 }
 
 .found {
@@ -474,11 +450,5 @@ input:focus-visible {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .card {
-        background: linear-gradient(145deg, #3a352f, #2a2620);
     }
 }
