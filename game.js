@@ -123,21 +123,45 @@ const check_same = (firstCard, secondCard, firstButton, secondButton) => {
         count_found++;
         updatePoints();
         enableRemaining();
+        launchConfetti();
+
+        // Let the found pop + confetti land, then the pair flies off and leaves an empty slot.
+        setTimeout(() => {
+            firstButton.querySelector('img').classList.add('fly-out');
+            secondButton.querySelector('img').classList.add('fly-out');
+            setTimeout(() => {
+                firstButton.classList.add('cleared');
+                secondButton.classList.add('cleared');
+            }, 420);
+        }, 350);
     } else {
         const firstImg = firstButton.querySelector('img');
         const secondImg = secondButton.querySelector('img');
         revealCard(firstImg, firstCard.cover, 'קלף סגור');
-        // Only re-enable the rest of the board once both cards finish flipping back down.
-        revealCard(secondImg, secondCard.cover, 'קלף סגור', enableRemaining);
+        revealCard(secondImg, secondCard.cover, 'קלף סגור');
+        enableRemaining();
     }
 
     if (isMatch && count_found === arr_length) {
         setTimeout(() => {
             alert('כל הכבוד! מצאת את כל הזוגות');
             stop();
-        }, 250);
+        }, 900);
     }
 };
+
+function launchConfetti() {
+    const colors = ['#ff6b6b', '#feca57', '#1dd1a1', '#54a0ff', '#ff9ff3', '#f368e0'];
+    for (let i = 0; i < 24; i++) {
+        const piece = document.createElement('div');
+        piece.className = 'confetti-piece';
+        piece.style.left = `${Math.random() * 100}vw`;
+        piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.animationDelay = `${Math.random() * 0.2}s`;
+        document.body.appendChild(piece);
+        setTimeout(() => piece.remove(), 1300);
+    }
+}
 
 const print_cards = (cards) => {
     const container = document.querySelector('#all_cards');
@@ -212,12 +236,7 @@ function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function revealCard(image, src, alt, onDone) {
-    image.classList.add('card-fade');
-    setTimeout(() => {
-        image.src = src;
-        image.alt = alt;
-        requestAnimationFrame(() => image.classList.remove('card-fade'));
-        if (onDone) setTimeout(onDone, 130);
-    }, 90);
+function revealCard(image, src, alt) {
+    image.src = src;
+    image.alt = alt;
 }
