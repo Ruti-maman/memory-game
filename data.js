@@ -17,20 +17,20 @@ const cards_arr = [
     { cover: "../imgs/transportation.jpg", link: "../imgs/T15.png", cat: "transportation", cnt: 0 },
 
 
-    { cover: "../imgs/ice-cream.jpg", link: "../imgs/G2.jpg", cat: "ice_cream", cnt: 0 },
-    { cover: "../imgs/ice-cream.jpg", link: "../imgs/G3.jpg", cat: "ice_cream", cnt: 0 },
-    { cover: "../imgs/ice-cream.jpg", link: "../imgs/G4.jpg", cat: "ice_cream", cnt: 0 },
-    { cover: "../imgs/ice-cream.jpg", link: "../imgs/G5.jpg", cat: "ice_cream", cnt: 0 },
-    { cover: "../imgs/ice-cream.jpg", link: "../imgs/G6.png", cat: "ice_cream", cnt: 0 },
-    { cover: "../imgs/ice-cream.jpg", link: "../imgs/G7.png", cat: "ice_cream", cnt: 0 },
-    { cover: "../imgs/ice-cream.jpg", link: "../imgs/G8.png", cat: "ice_cream", cnt: 0 },
-    { cover: "../imgs/ice-cream.jpg", link: "../imgs/G9.png", cat: "ice_cream", cnt: 0 },
-    { cover: "../imgs/ice-cream.jpg", link: "../imgs/G10.png", cat: "ice_cream", cnt: 0 },
-    { cover: "../imgs/ice-cream.jpg", link: "../imgs/G11.jpg", cat: "ice_cream", cnt: 0 },
-    { cover: "../imgs/ice-cream.jpg", link: "../imgs/G12.jpg", cat: "ice_cream", cnt: 0 },
-    { cover: "../imgs/ice-cream.jpg", link: "../imgs/G13.png", cat: "ice_cream", cnt: 0 },
-    { cover: "../imgs/ice-cream.jpg", link: "../imgs/G14.png", cat: "ice_cream", cnt: 0 },
-    { cover: "../imgs/ice-cream.jpg", link: "../imgs/G16.jpg", cat: "ice_cream", cnt: 0 },
+    { cover: "../imgs/gelato-cover.jpg", link: "../imgs/G2.jpg", cat: "ice_cream", cnt: 0 },
+    { cover: "../imgs/gelato-cover.jpg", link: "../imgs/G3.jpg", cat: "ice_cream", cnt: 0 },
+    { cover: "../imgs/gelato-cover.jpg", link: "../imgs/G4.jpg", cat: "ice_cream", cnt: 0 },
+    { cover: "../imgs/gelato-cover.jpg", link: "../imgs/G5.jpg", cat: "ice_cream", cnt: 0 },
+    { cover: "../imgs/gelato-cover.jpg", link: "../imgs/G6.png", cat: "ice_cream", cnt: 0 },
+    { cover: "../imgs/gelato-cover.jpg", link: "../imgs/G7.png", cat: "ice_cream", cnt: 0 },
+    { cover: "../imgs/gelato-cover.jpg", link: "../imgs/G8.png", cat: "ice_cream", cnt: 0 },
+    { cover: "../imgs/gelato-cover.jpg", link: "../imgs/G9.png", cat: "ice_cream", cnt: 0 },
+    { cover: "../imgs/gelato-cover.jpg", link: "../imgs/G10.png", cat: "ice_cream", cnt: 0 },
+    { cover: "../imgs/gelato-cover.jpg", link: "../imgs/G11.jpg", cat: "ice_cream", cnt: 0 },
+    { cover: "../imgs/gelato-cover.jpg", link: "../imgs/G12.jpg", cat: "ice_cream", cnt: 0 },
+    { cover: "../imgs/gelato-cover.jpg", link: "../imgs/G13.png", cat: "ice_cream", cnt: 0 },
+    { cover: "../imgs/gelato-cover.jpg", link: "../imgs/G14.png", cat: "ice_cream", cnt: 0 },
+    { cover: "../imgs/gelato-cover.jpg", link: "../imgs/G16.jpg", cat: "ice_cream", cnt: 0 },
 
 
     { cover: "../imgs/letters.jpg", link: "../imgs/L1.jpg", cat: "letters", cnt: 0 },
@@ -54,7 +54,7 @@ const cards_arr = [
 
 const links_cat = [
 
-    { link: "../imgs/ice-cream.jpg", cat: "ice_cream" },
+    { link: "../imgs/gelato-cover.jpg", cat: "ice_cream" },
     { link: "../imgs/transportation.jpg", cat: "transportation" },
     { link: "../imgs/letters.jpg", cat: "letters" }
 
